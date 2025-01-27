@@ -16,7 +16,16 @@ type Recipe = {
 };
 
 function Recipe() {
-	const [recipe, setRecipe] = useState<Recipe>();
+	const [recipe, setRecipe] = useState<Recipe>({
+		name: 'Pancakes',
+		slug: 'pancakes',
+		ingredients: [
+			{ type: 'butter', amount: '1', measurement: 'tbsp' },
+			{ type: 'tomotillo', amount: '1', measurement: 'cup' },
+			{ type: 'eggs', amount: '3', measurement: 'egg' },
+			{ type: 'pepper', amount: '1', measurement: 'tsp' },
+		],
+	});
 	const params = useParams();
 	const displayRecipe = params.recipe;
 	// const [isLoading, setIsLoading] = useState(true);
@@ -36,17 +45,22 @@ function Recipe() {
 	}, [displayRecipe]);
 
 	return (
-		<>
-			<div></div>
-			<h1></h1>
+		<main>
+			<h1>{recipe.name}</h1>
+			<div className="card">
+				<ul className="text-left">
+					{recipe.ingredients.map((item, index) => (
+						<li key={index}>
+							{item.type}: {item.amount} {item.measurement}
+						</li>
+					))}
+				</ul>
+			</div>
 			<div className="card">
 				<p></p>
+				<p></p>
 			</div>
-			<div className="card">
-				<p>{JSON.stringify(recipe)}</p>
-			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-		</>
+		</main>
 	);
 }
 
