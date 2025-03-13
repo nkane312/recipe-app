@@ -85,11 +85,11 @@ app.get('/recipe', (req, res) => {
 // });
 
 //API Endpoint
-const apiKey = '4febc9ea95e847bfaee0dad71336ff52';
+
 app.get('/recipes/:ingredient', (req, res) => {
 	fetch(
 		'https://api.spoonacular.com/recipes/complexSearch?apiKey=' +
-			apiKey +
+			process.env.SPOONACULAR_KEY +
 			'&query=' +
 			req.params.ingredient,
 	)

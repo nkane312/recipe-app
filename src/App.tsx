@@ -8,8 +8,8 @@ import Dashboard from './Dashboard';
 // const recipeRequest = await fetch('http://localhost:3000/recipe/meatloaf');
 // const recipe = await recipeRequest.json();
 
-// const recipesListRequest = await fetch('http://localhost:3000/recipes/pasta');
-// const recipeList = await recipesListRequest.json();
+const recipesListRequest = await fetch('http://localhost:3000/recipes/pasta');
+const recipesList = await recipesListRequest.json();
 
 const mongoListRequest = await fetch('http://localhost:3000/recipes/');
 const mongoList = await mongoListRequest.json();
@@ -70,7 +70,7 @@ function App() {
 			</div>
 			<div className="card">
 				{/* <p>{JSON.stringify(recipe)}</p> */}
-				{/* <p>{JSON.stringify(recipeList)}</p> */}
+				<p>{JSON.stringify(recipesList)}</p>
 				{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
 				{/* <p>{mongoAdd}</p> */}
 				{/* <p>{mongoRemove}</p> */}
