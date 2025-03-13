@@ -1,6 +1,7 @@
 [
 	{
-		"name": "pancakes",
+		"name": "Pancakes",
+		"slug": "pankcakes",
 		"ingredients": [
 			{ "type": "butter", "amount": "1", "measurement": "tbsp" },
 			{ "type": "milk", "amount": "1", "measurement": "cup" },
@@ -9,7 +10,8 @@
 		]
 	},
 	{
-		"name": "salsa verde",
+		"name": "Salsa Verde",
+		"slug": "salsa verde",
 		"ingredients": [
 			{ "type": "butter", "amount": "1", "measurement": "tbsp" },
 			{ "type": "tomotillo", "amount": "1", "measurement": "cup" },
@@ -18,7 +20,8 @@
 		]
 	},
 	{
-		"name": "meatloaf",
+		"name": "Meatloaf",
+		"slug": "meatloaf",
 		"ingredients": [
 			{ "type": "ground beef", "amount": "1", "measurement": "lb" },
 			{ "type": "chopped onion", "amount": "1/4", "measurement": "cup" },

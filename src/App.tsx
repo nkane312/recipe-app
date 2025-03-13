@@ -1,33 +1,81 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+// import reactLogo from './assets/react.svg';
+// import viteLogo from '/vite.svg';
 import './App.css';
+import { Helmet } from 'react-helmet';
+import { Navigation } from './Navigation';
+import Dashboard from './Dashboard';
 
-const recipeRequest = await fetch('http://localhost:3000/recipe/meatloaf');
-const recipe = await recipeRequest.json();
+// const recipeRequest = await fetch('http://localhost:3000/recipe/meatloaf');
+// const recipe = await recipeRequest.json();
+
+// const recipesListRequest = await fetch('http://localhost:3000/recipes/pasta');
+// const recipeList = await recipesListRequest.json();
+
+const mongoListRequest = await fetch('http://localhost:3000/recipes/');
+const mongoList = await mongoListRequest.json();
+
+// const mongoAddRequest = await fetch('http://localhost:3000/add/', {
+// 	method: 'POST',
+// 	body: JSON.stringify({
+// 		name: 'Mac and Cheese',
+// 		slug: 'mac-and-cheese',
+// 		ingredients: [
+// 			{ type: 'cheddar cheese', amount: '2', measurement: 'cups' },
+// 			{ type: 'elbow macaroni', amount: '1', measurement: 'box' },
+// 			{ type: 'butter', amount: '1/4', measurement: 'cup' },
+// 			{ type: 'milk', amount: '2', measurement: 'cups' },
+// 		],
+// 	}),
+// 	headers: { 'Content-Type': 'application/json' },
+// });
+// const mongoAdd = await mongoAddRequest.text();
+
+// const mongoRemoveRequest = await fetch('http://localhost:3000/remove/', {
+// 	method: 'POST',
+// 	body: JSON.stringify({
+// 		name: 'Mac and Cheese',
+// 		slug: 'mac-and-cheese',
+// 		ingredients: [
+// 			{ type: 'cheddar cheese', amount: '2', measurement: 'cups' },
+// 			{ type: 'elbow macaroni', amount: '1', measurement: 'box' },
+// 			{ type: 'butter', amount: '1/4', measurement: 'cup' },
+// 			{ type: 'milk', amount: '2', measurement: 'cups' },
+// 		],
+// 	}),
+// 	headers: { 'Content-Type': 'application/json' },
+// });
+// const mongoRemove = await mongoRemoveRequest.text();
 
 function App() {
-	const [count, setCount] = useState(0);
-
+	// console.log(mongoList);
 	return (
 		<>
-			<div>
+			<Helmet>
+				<meta charSet="utf-8" />
+				<meta name="viewport" content="initial-scale=1, width=device-width" />
+				<title>Recipe Dashboard</title>
+			</Helmet>
+			{/* <div>
 				<a href="https://vite.dev" target="_blank">
 					<img src={viteLogo} className="logo" alt="Vite logo" />
 				</a>
 				<a href="https://react.dev" target="_blank">
 					<img src={reactLogo} className="logo react" alt="React logo" />
 				</a>
-			</div>
+			</div> */}
+			<Navigation />
 			<h1>Vite + React</h1>
 			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
 				<p></p>
 			</div>
 			<div className="card">
-				<p>{JSON.stringify(recipe)}</p>
+				{/* <p>{JSON.stringify(recipe)}</p> */}
+				{/* <p>{JSON.stringify(recipeList)}</p> */}
+				{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
+				{/* <p>{mongoAdd}</p> */}
+				{/* <p>{mongoRemove}</p> */}
 			</div>
-			<p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+			<Dashboard data={mongoList} />
 		</>
 	);
 }
