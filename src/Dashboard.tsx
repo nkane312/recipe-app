@@ -14,12 +14,10 @@ const xThemeComponents = {
 };
 
 export default function Dashboard(props: { data: RecipeList; disableCustomTheme?: boolean }) {
-	console.log(props.data);
 	return (
 		<AppTheme {...props} themeComponents={xThemeComponents}>
 			<CssBaseline enableColorScheme />
 			<Box sx={{ display: 'flex' }}>
-				{/* Main content */}
 				<Box
 					component="main"
 					sx={(theme) => ({

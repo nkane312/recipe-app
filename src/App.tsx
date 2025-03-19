@@ -4,6 +4,11 @@ import './App.css';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './Navigation';
 import Dashboard from './Dashboard';
+import Search from '../components/Search';
+import RecipeCard from '../components/RecipeCard';
+import { SearchFunction } from './@types';
+import { useState } from 'react';
+import Grid from '@mui/material/Grid2';
 
 // const recipeRequest = await fetch('http://localhost:3000/recipe/meatloaf');
 // const recipe = await recipeRequest.json();
@@ -47,13 +52,23 @@ const mongoList = await mongoListRequest.json();
 // const mongoRemove = await mongoRemoveRequest.text();
 
 function App() {
+	const [newRecipes, setNewRecipes] = useState([
+		{ id: 0, image: 'https://img.spoonacular.com/recipes/656298-312x231.jpg', title: 'Test' },
+	]);
+	const runSearch: SearchFunction = async (ingredient, e) => {
+		e.preventDefault();
+		const recipesListRequest = await fetch('http://localhost:3000/recipes/' + ingredient);
+		const recipesList = await recipesListRequest.json();
+		console.log(recipesList.results);
+		setNewRecipes(recipesList.results);
+	};
 	// console.log(mongoList);
 	return (
 		<>
 			<Helmet>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1, width=device-width" />
-				<title>Recipe Dashboard</title>
+				<title>Recipes Dashboard</title>
 			</Helmet>
 			{/* <div>
 				<a href="https://vite.dev" target="_blank">
@@ -64,18 +79,28 @@ function App() {
 				</a>
 			</div> */}
 			<Navigation />
-			<h1>Vite + React</h1>
-			<div className="card">
-				<p></p>
+			<h1>Recipes Dashboard</h1>
+
+			<div className="h-screen">
+				<div className="flex justify-center items-center text-2xl">
+					{/* <p>{JSON.stringify(recipe)}</p> */}
+					<p>{JSON.stringify(recipesList)}</p>
+					{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
+					{/* <p>{mongoAdd}</p> */}
+					{/* <p>{mongoRemove}</p> */}
+					<Search handleSubmit={runSearch} />
+					<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+						{newRecipes.map((recipe) => (
+							<Grid size={4}>
+								<RecipeCard key={recipe.id} name={recipe.title} image={recipe.image} />
+							</Grid>
+						))}
+					</Grid>
+
+					{/* <Dashboard data={newRecipes} /> */}
+					<Dashboard data={mongoList} />
+				</div>
 			</div>
-			<div className="card">
-				{/* <p>{JSON.stringify(recipe)}</p> */}
-				<p>{JSON.stringify(recipesList)}</p>
-				{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
-				{/* <p>{mongoAdd}</p> */}
-				{/* <p>{mongoRemove}</p> */}
-			</div>
-			<Dashboard data={mongoList} />
 		</>
 	);
 }
