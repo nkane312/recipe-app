@@ -1,13 +1,14 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import CancelIcon from '@mui/icons-material/Cancel';
 import { SearchFunction } from '../src/@types';
 
 export default function Search(props: { handleSubmit: SearchFunction }) {
-	const [searchValue, setSearchValue] = React.useState('');
+	const [searchValue, setSearchValue] = useState('');
 
 	// const runSearch = async (ingredient: string): Promise<string> => {
 	// 	const recipesListRequest = await fetch('http://localhost:3000/recipes/' + ingredient);
@@ -32,11 +33,20 @@ export default function Search(props: { handleSubmit: SearchFunction }) {
 				onChange={(e) => setSearchValue(e.currentTarget.value)}
 				// onSubmit={(e) => props.handleSubmit(searchValue, e)}
 			/>
+
+			{searchValue !== '' ? (
+				<IconButton type="button" aria-label="clear text" onClick={() => setSearchValue('')}>
+					<CancelIcon />
+				</IconButton>
+			) : (
+				''
+			)}
+
 			<IconButton
 				type="button"
 				sx={{ p: '10px' }}
 				aria-label="search"
-				// onClick={(e) => props.handleSubmit(searchValue, e)}
+				onClick={(e) => props.handleSubmit(searchValue, e)}
 			>
 				<SearchIcon />
 			</IconButton>

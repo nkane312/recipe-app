@@ -9,6 +9,7 @@ import RecipeCard from '../components/RecipeCard';
 import { SearchFunction } from './@types';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid2';
+import { Container, Typography } from '@mui/material';
 
 // const recipeRequest = await fetch('http://localhost:3000/recipe/meatloaf');
 // const recipe = await recipeRequest.json();
@@ -55,14 +56,16 @@ function App() {
 	const [newRecipes, setNewRecipes] = useState([
 		{ id: 0, image: 'https://img.spoonacular.com/recipes/656298-312x231.jpg', title: 'Test' },
 	]);
+	const [isLoading, setIsLoading] = useState(false);
 	const runSearch: SearchFunction = async (ingredient, e) => {
+		setIsLoading(true);
 		e.preventDefault();
 		const recipesListRequest = await fetch('http://localhost:3000/recipes/' + ingredient);
 		const recipesList = await recipesListRequest.json();
-		console.log(recipesList.results);
 		setNewRecipes(recipesList.results);
+		console.log(recipesList.results);
+		setIsLoading(false);
 	};
-	// console.log(mongoList);
 	return (
 		<>
 			<Helmet>
@@ -70,34 +73,52 @@ function App() {
 				<meta name="viewport" content="initial-scale=1, width=device-width" />
 				<title>Recipes Dashboard</title>
 			</Helmet>
-			{/* <div>
-				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div> */}
 			<Navigation />
 			<h1>Recipes Dashboard</h1>
 
 			<div className="h-screen">
-				<div className="flex justify-center items-center text-2xl">
+				<div className="flex flex-wrap justify-center items-center text-2xl">
 					{/* <p>{JSON.stringify(recipe)}</p> */}
 					<p>{JSON.stringify(recipesList)}</p>
 					{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
 					{/* <p>{mongoAdd}</p> */}
 					{/* <p>{mongoRemove}</p> */}
 					<Search handleSubmit={runSearch} />
-					<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-						{newRecipes.map((recipe) => (
-							<Grid size={4}>
-								<RecipeCard key={recipe.id} name={recipe.title} image={recipe.image} />
-							</Grid>
-						))}
-					</Grid>
 
-					{/* <Dashboard data={newRecipes} /> */}
+					<Container sx={{ display: 'flex' }}>
+						<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+							{isLoading ? (
+								<Typography
+									gutterBottom
+									variant="h4"
+									component="div"
+									sx={{ fontWeight: 'bold', margin: 'auto' }}
+								>
+									Loading...
+								</Typography>
+							) : newRecipes.length === 0 ? (
+								<Typography
+									gutterBottom
+									variant="h4"
+									component="div"
+									sx={{ fontWeight: 'bold', margin: 'auto' }}
+								>
+									No Results!
+								</Typography>
+							) : (
+								newRecipes.map((recipe) =>
+									recipe.id === 0 ? (
+										''
+									) : (
+										<Grid key={recipe.id} size={4}>
+											<RecipeCard name={recipe.title} image={recipe.image} />
+										</Grid>
+									),
+								)
+							)}
+						</Grid>
+					</Container>
+
 					<Dashboard data={mongoList} />
 				</div>
 			</div>
