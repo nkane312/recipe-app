@@ -11,13 +11,17 @@ const columns: GridColDef[] = [
 		width: 500,
 		// renderCell: (params) => <Link to={'recipe/' + params.row.slug}>{params.row.name}</Link>,
 	},
-	// { field: 'name', headerName: 'Recipe', width: 300 },
-	// {
-	// 	field: 'slug',
-	// 	headerName: 'Page',
-	// 	width: 150,
-	// 	renderCell: (params) => <Link to={'recipe/' + params.row.slug}>Go to Recipe</Link>,
-	// },
+	{ field: 'servings', headerName: 'Servings', width: 200 },
+	{
+		field: 'cookTime',
+		headerName: 'Cook Time (in minutes)',
+		width: 200,
+	},
+	{
+		field: 'timestamp',
+		headerName: 'Date Added',
+		width: 200,
+	},
 ];
 
 export default function CustomizedDataGrid(data: { data: RecipeList }) {
@@ -29,6 +33,9 @@ export default function CustomizedDataGrid(data: { data: RecipeList }) {
 			id: recipe._id,
 			name: recipe.name,
 			slug: recipe.slug,
+			servings: recipe.servings,
+			cookTime: recipe.cookTime,
+			timestamp: new Date(recipe.timestamp).toDateString(),
 			// slug: link,
 			// slug: <Link to={'recipe/' + recipe.slug}>Go to</Link>,
 		};

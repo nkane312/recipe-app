@@ -4,16 +4,17 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import './index.css';
 import App from './App.tsx';
 import Recipe from './Recipe.tsx';
-import RecipeList from './RecipeList.tsx';
+import CustomRecipeList from './CustomRecipeList.tsx';
+import CustomRecipe from './CustomRecipe.tsx';
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<App />} />
-				<Route path="recipe" element={<RecipeList />} />
-				<Route path="recipe/:recipe" element={<Recipe />} />
-				<Route path="recipes/:ingredient" element={<Recipe />} />
+				<Route path="recipe/:id" element={<Recipe />} />
+				<Route path="recipes" element={<CustomRecipeList />} />
+				<Route path="recipes/:recipe" element={<CustomRecipe />} />
 			</Routes>
 		</BrowserRouter>
 	</StrictMode>,

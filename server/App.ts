@@ -36,19 +36,27 @@ async function run(document?: Recipe | { slug: string }, mongoMethod?: string) {
 		const collection = client.db('recipeapp').collection('recipes');
 		if (document === undefined) {
 			const findResult = await collection.find({}).toArray();
-			// console.log(findResult);
 			return findResult;
 		} else {
-			if (collection.find({ slug: document.slug }) && mongoMethod === 'remove') {
-				const removeRecipe = await collection.deleteOne(document);
+			if (
+				(await collection.findOne({ slug: document.slug })) !== null &&
+				mongoMethod === 'remove'
+			) {
+				const removeRecipe = await collection.deleteOne({ slug: document.slug });
 				if (removeRecipe.acknowledged) {
 					return 'Recipe removed!';
 				} else {
 					return 'Failed to remove recipe.';
 				}
-			} else if (collection.find({ slug: document.slug }) && mongoMethod === 'add') {
+			} else if (
+				(await collection.findOne({ slug: document.slug })) !== null &&
+				mongoMethod === 'add'
+			) {
 				return 'Recipe already exists in database!';
-			} else if (!collection.find({ slug: document.slug }) && mongoMethod === 'add') {
+			} else if (
+				(await collection.findOne({ slug: document.slug })) === null &&
+				mongoMethod === 'add'
+			) {
 				const addRecipe = await collection.insertOne(document);
 				if (addRecipe.acknowledged) {
 					return 'Recipe Added!';
@@ -57,15 +65,17 @@ async function run(document?: Recipe | { slug: string }, mongoMethod?: string) {
 				}
 			} else {
 				const recipe = await collection.findOne({ slug: document.slug });
-				// const recipe = await collection.find((element: Recipe) => element.slug === document.slug);
-				// console.log(recipe);
 				return recipe;
 			}
 		}
-	} finally {
-		// Ensures that the client will close when you finish/error
+	} catch (err) {
+		console.error(err);
 		await client.close();
 	}
+	// finally {
+	// 	// Ensures that the client will close when you finish/error
+	// 	await client.close();
+	// }
 }
 
 const app = express();
@@ -86,12 +96,33 @@ app.get('/recipe', (req, res) => {
 
 //API Endpoint
 
-app.get('/recipes/:ingredient', (req, res) => {
+app.get('/search/:ingredient', (req, res) => {
 	fetch(
 		'https://api.spoonacular.com/recipes/complexSearch?apiKey=' +
 			process.env.SPOONACULAR_KEY +
 			'&query=' +
 			req.params.ingredient,
+	)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok ' + response.statusText);
+			}
+			return response.json();
+		})
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((error) => {
+			console.error('There was a problem with the fetch operation:', error);
+		});
+});
+
+app.get('/recipe/:id', (req, res) => {
+	fetch(
+		'https://api.spoonacular.com/recipes/' +
+			req.params.id +
+			'/information?apiKey=' +
+			process.env.SPOONACULAR_KEY,
 	)
 		.then((response) => {
 			if (!response.ok) {
@@ -113,7 +144,7 @@ app.get('/recipes', async (req, res) => {
 	res.send(recipes);
 });
 
-app.get('/recipe/:recipe', async (req, res) => {
+app.get('/recipes/:recipe', async (req, res) => {
 	const recipeReq = { slug: req.params.recipe };
 	// console.log(recipeReq);
 	const recipe = await run(recipeReq).catch(console.dir);
@@ -126,7 +157,7 @@ app.get('/recipe/:recipe', async (req, res) => {
 app.use(express.json());
 
 app.post('/add', async (req, res) => {
-	const added = await run(req.body).catch(console.dir);
+	const added = await run(req.body, 'add').catch(console.dir);
 	res.send(added);
 });
 
@@ -134,6 +165,7 @@ app.post('/remove', async (req, res) => {
 	const removed = await run(req.body, 'remove').catch(console.dir);
 	res.send(removed);
 });
+// End MongoDB Recipes Endpoints
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);

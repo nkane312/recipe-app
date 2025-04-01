@@ -9,13 +9,13 @@ import RecipeCard from '../components/RecipeCard';
 import { SearchFunction } from './@types';
 import { useState } from 'react';
 import Grid from '@mui/material/Grid2';
-import { Container, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 // const recipeRequest = await fetch('http://localhost:3000/recipe/meatloaf');
 // const recipe = await recipeRequest.json();
 
-const recipesListRequest = await fetch('http://localhost:3000/recipes/pasta');
-const recipesList = await recipesListRequest.json();
+// const recipesListRequest = await fetch('http://localhost:3000/search/pasta');
+// const recipesList = await recipesListRequest.json();
 
 const mongoListRequest = await fetch('http://localhost:3000/recipes/');
 const mongoList = await mongoListRequest.json();
@@ -60,69 +60,84 @@ function App() {
 	const runSearch: SearchFunction = async (ingredient, e) => {
 		setIsLoading(true);
 		e.preventDefault();
-		const recipesListRequest = await fetch('http://localhost:3000/recipes/' + ingredient);
+		const recipesListRequest = await fetch('http://localhost:3000/search/' + ingredient);
 		const recipesList = await recipesListRequest.json();
 		setNewRecipes(recipesList.results);
-		console.log(recipesList.results);
+		// console.log(recipesList.results);
 		setIsLoading(false);
 	};
 	return (
-		<>
+		<Grid
+			sx={{
+				justifyContent: 'center',
+				alignItems: 'center',
+				backgroundColor: '#000000',
+			}}
+			container
+		>
 			<Helmet>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="initial-scale=1, width=device-width" />
 				<title>Recipes Dashboard</title>
 			</Helmet>
-			<Navigation />
-			<h1>Recipes Dashboard</h1>
+			<Grid size={12}>
+				<Navigation />
 
-			<div className="h-screen">
-				<div className="flex flex-wrap justify-center items-center text-2xl">
-					{/* <p>{JSON.stringify(recipe)}</p> */}
-					<p>{JSON.stringify(recipesList)}</p>
-					{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
-					{/* <p>{mongoAdd}</p> */}
-					{/* <p>{mongoRemove}</p> */}
-					<Search handleSubmit={runSearch} />
+				<Typography variant="h1">Recipes Dashboard</Typography>
+			</Grid>
 
-					<Container sx={{ display: 'flex' }}>
-						<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-							{isLoading ? (
-								<Typography
-									gutterBottom
-									variant="h4"
-									component="div"
-									sx={{ fontWeight: 'bold', margin: 'auto' }}
-								>
-									Loading...
-								</Typography>
-							) : newRecipes.length === 0 ? (
-								<Typography
-									gutterBottom
-									variant="h4"
-									component="div"
-									sx={{ fontWeight: 'bold', margin: 'auto' }}
-								>
-									No Results!
-								</Typography>
+			<Grid
+				container
+				sx={{
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}
+			>
+				{/* <Grid> */}
+				{/* <p>{JSON.stringify(recipe)}</p> */}
+				{/* <p>{JSON.stringify(recipesList)}</p> */}
+				{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
+				{/* <p>{mongoAdd}</p> */}
+				{/* <p>{mongoRemove}</p> */}
+				<Search handleSubmit={runSearch} />
+
+				{/* <Container sx={{ display: 'flex' }}> */}
+				<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+					{isLoading ? (
+						<Typography
+							gutterBottom
+							variant="h4"
+							component="div"
+							sx={{ fontWeight: 'bold', margin: 'auto' }}
+						>
+							Loading...
+						</Typography>
+					) : newRecipes.length === 0 ? (
+						<Typography
+							gutterBottom
+							variant="h4"
+							component="div"
+							sx={{ fontWeight: 'bold', margin: 'auto' }}
+						>
+							No Results!
+						</Typography>
+					) : (
+						newRecipes.map((recipe) =>
+							recipe.id === 0 ? (
+								''
 							) : (
-								newRecipes.map((recipe) =>
-									recipe.id === 0 ? (
-										''
-									) : (
-										<Grid key={recipe.id} size={4}>
-											<RecipeCard name={recipe.title} image={recipe.image} />
-										</Grid>
-									),
-								)
-							)}
-						</Grid>
-					</Container>
-
-					<Dashboard data={mongoList} />
-				</div>
-			</div>
-		</>
+								<Grid key={recipe.id} size={4}>
+									<RecipeCard id={recipe.id} name={recipe.title} image={recipe.image} />
+								</Grid>
+							),
+						)
+					)}
+					{/* </Grid> */}
+					{/* </Container> */}
+				</Grid>
+				<Dashboard data={mongoList} />
+			</Grid>
+		</Grid>
 	);
 }
 

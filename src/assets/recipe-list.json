@@ -1,35 +1,127 @@
 [
 	{
 		"name": "Pancakes",
-		"slug": "pankcakes",
+		"slug": "pancakes",
 		"ingredients": [
-			{ "type": "butter", "amount": "1", "measurement": "tbsp" },
-			{ "type": "milk", "amount": "1", "measurement": "cup" },
-			{ "type": "eggs", "amount": "3", "measurement": "eggs" },
-			{ "type": "flour", "amount": "2", "measurement": "cups" }
+			{ "type": "butter", "amount": "3", "measurement": "tbsp" },
+			{ "type": "milk", "amount": "1.25", "measurement": "cup" },
+			{ "type": "eggs", "amount": "1", "measurement": "egg" },
+			{ "type": "flour", "amount": "1.5", "measurement": "cups" },
+			{ "type": "baking powder", "amount": "3.5", "measurement": "tsp" },
+			{ "type": "salt", "amount": ".25", "measurement": "tsp" },
+			{ "type": "sugar", "amount": "1", "measurement": "tbsp" }
+		],
+		"timestamp": "2025-03-20T14:28:50.991Z",
+		"image": "",
+		"summary": "Perfect pancakes are easier to make than you think. This pancake recipe produces thick, fluffy, and all-around delicious pancakes with just a few ingredients that are probably already in your kitchen.",
+		"servings": 8,
+		"cookTime": 20,
+		"diet": {
+			"vegetarian": true,
+			"vegan": false,
+			"glutenFree": false,
+			"dairyFree": false
+		},
+		"instructions": [
+			{ "number": 1, "step": "Sift the dry ingredients together." },
+			{ "number": 2, "step": "Make a well, then add the wet ingredients. Stir to combine." },
+			{ "number": 3, "step": "Scoop the batter onto a hot griddle or pan." },
+			{ "number": 4, "step": "Cook for two to three minutes, then flip." },
+			{ "number": 5, "step": "Continue cooking until brown on both sides." }
 		]
 	},
 	{
 		"name": "Salsa Verde",
-		"slug": "salsa verde",
+		"slug": "salsa-verde",
 		"ingredients": [
-			{ "type": "butter", "amount": "1", "measurement": "tbsp" },
-			{ "type": "tomotillo", "amount": "1", "measurement": "cup" },
-			{ "type": "eggs", "amount": "3", "measurement": "eggs" },
-			{ "type": "pepper", "amount": "1", "measurement": "tsp" }
+			{ "type": "tomatillo", "amount": "1.25", "measurement": "lbs" },
+			{ "type": "onion", "amount": "1", "measurement": "cup" },
+			{ "type": "serrano chile", "amount": "4", "measurement": "chiles" },
+			{ "type": "cilantro", "amount": "12", "measurement": "sprigs" },
+			{ "type": "garlic", "amount": "4", "measurement": "cloves" },
+			{ "type": "cooking oil", "amount": "2", "measurement": "tbsp" },
+			{ "type": "salt", "amount": "1.5", "measurement": "tsp" }
+		],
+		"timestamp": "2025-03-19T14:28:50.991Z",
+		"image": "",
+		"summary": "Recipe for an authentic \"salsa verde,\" or \"green sauce,\" a staple in every Mexican kitchen. It is so simple to make from easy to find ingredients. You make it mild or spicy depending on how many peppers you add.",
+		"servings": 8,
+		"cookTime": 40,
+		"diet": {
+			"vegetarian": true,
+			"vegan": true,
+			"glutenFree": true,
+			"dairyFree": true
+		},
+		"instructions": [
+			{
+				"number": 1,
+				"step": "Remove the papery husks from the tomatillos and rinse to remove the sticky residue."
+			},
+			{ "number": 2, "step": "Quarter the onion." },
+			{
+				"number": 3,
+				"step": "Add all of the ingredients except the cilantro and salt to a large pot and just cover with water."
+			},
+			{
+				"number": 4,
+				"step": "Bring the water and ingredients to a boil and then simmer for 10 minutes."
+			},
+			{
+				"number": 5,
+				"step": "Blend the cooked ingredients and the cilantro with the cooking water until smooth. (About 30 seconds)"
+			},
+			{ "number": 6, "step": "Heat 2 tablespoons of cooking oil in the pot." },
+			{ "number": 7, "step": "Pour the blended salsa back into the pot with the hot cooking oil." },
+			{ "number": 8, "step": "Reduce the heat and simmer for 20 minutes." },
+			{ "number": 9, "step": "Add the salt and adjust if necessary." }
 		]
 	},
 	{
 		"name": "Meatloaf",
 		"slug": "meatloaf",
 		"ingredients": [
-			{ "type": "ground beef", "amount": "1", "measurement": "lb" },
-			{ "type": "chopped onion", "amount": "1/4", "measurement": "cup" },
+			{ "type": "ground beef", "amount": "1.5", "measurement": "lbs" },
+			{ "type": "grated onion", "amount": "1", "measurement": "cup" },
 			{ "type": "eggs, beaten", "amount": "2", "measurement": "eggs" },
-			{ "type": "milk", "amount": "1/2", "measurement": "cup" },
+			{ "type": "minced garlic", "amount": "1", "measurement": "clove" },
 			{ "type": "bread crumbs", "amount": "1", "measurement": "cup" },
-			{ "type": "italian seasoning", "amount": "1", "measurement": "tsp" },
-			{ "type": "ketchup", "amount": "1/2", "measurement": "cup" }
+			{ "type": "brown sugar", "amount": "2", "measurement": "tsp" },
+			{ "type": "ketchup", "amount": "1/2", "measurement": "cup" },
+			{ "type": "parsley", "amount": "2", "measurement": "tbsp" },
+			{ "type": "Worcestershire sauce", "amount": "1", "measurement": "tbsp" },
+			{ "type": "Worcestershire sauce", "amount": "1", "measurement": "tsp" },
+			{ "type": "salt", "amount": "1.5", "measurement": "tsp" },
+			{ "type": "pepper", "amount": ".5", "measurement": "tsp" }
+		],
+		"timestamp": "2025-03-18T14:28:50.991Z",
+		"image": "",
+		"summary": "Old-fashioned but never boring, this homemade meatloaf recipe will have everyone asking for seconds.",
+		"servings": 6,
+		"cookTime": 85,
+		"diet": {
+			"vegetarian": false,
+			"vegan": false,
+			"glutenFree": false,
+			"dairyFree": false
+		},
+		"instructions": [
+			{
+				"number": 1,
+				"step": "Preheat the oven to 350 degrees F. Line a rimmed baking sheet with parchment."
+			},
+			{
+				"number": 2,
+				"step": "Combine the meatloaf mix, breadcrumbs, parsley, eggs, onion, garlic, 1/4 cup of the ketchup, 1 tablespoon of the Worcestershire, 1 1/2 teaspoons salt and 1/2 teaspoon pepper in a large mixing bowl. Using your hands, mix together until well combined."
+			},
+			{
+				"number": 3,
+				"step": "Transfer the mixture to the prepared baking sheet and form it into a compact oval-shaped loaf about 9 inches by 5 inches. Bake the meatloaf for 30 minutes."
+			},
+			{
+				"number": 4,
+				"step": "Stir the brown sugar together with the remaining 1/4 cup ketchup and 1 teaspoon Worcestershire in a small bowl for the glaze. Brush the top and sides of the meatloaf all over with the glaze. Return to the oven and bake until the glaze starts to caramelize and a thermometer inserted in the center of the meatloaf registers 160 degrees Fahrenheit, about 25 minutes more. Let rest for 10 minutes before slicing and serving."
+			}
 		]
 	}
 ]

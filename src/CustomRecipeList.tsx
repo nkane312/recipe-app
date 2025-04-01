@@ -4,7 +4,7 @@ import { Navigation } from './Navigation';
 import { Helmet } from 'react-helmet';
 import type { RecipeList } from './@types';
 
-function Recipe() {
+function CustomRecipeList() {
 	const [recipes, setRecipes] = useState<RecipeList | null>(null);
 	// const [isLoading, setIsLoading] = useState(true);
 
@@ -40,7 +40,7 @@ function Recipe() {
 									<ul className="text-left">
 										{recipe.ingredients.map((ingredient, ingredientIndex) => (
 											<li key={ingredientIndex}>
-												{ingredient.type}: {ingredient.amount} {ingredient.measurement}
+												{ingredient.name}: {ingredient.amount} {ingredient.unit}
 											</li>
 										))}
 									</ul>
@@ -53,4 +53,4 @@ function Recipe() {
 	);
 }
 
-export default Recipe;
+export default CustomRecipeList;
