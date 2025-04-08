@@ -17,6 +17,13 @@ function Recipe() {
 	const params = useParams();
 	const recipeId = params.id;
 	const [inMongo, setInMongo] = useState(false);
+	const [cycleIds, setCycleIds] = useState<{ next: string | boolean; prev: string | boolean }>({
+		next: false,
+		prev: false,
+	});
+	// const [cycledRecipes, setCycledRecipes] = useState<
+	// 	[{ next: Recipe | boolean }, { prev: Recipe | boolean }]
+	// >([{ next: false }, { prev: false }]);
 	useEffect(() => {
 		const mongoExists = async () => {
 			if (recipe !== null) {
@@ -66,16 +73,12 @@ function Recipe() {
 		setInMongo(false);
 	};
 
-	const cycleRecipe = (direction: string, id: string | undefined) => {
+	const cycleRecipeIds = (id: string | undefined) => {
 		if (id !== undefined) {
-			let newId = parseInt(id);
-			if (direction === 'next') {
-				newId++;
-			} else {
-				newId--;
-			}
-			return '/recipe/' + newId;
-			// setRecipeId(newId.toString());
+			const newId = parseInt(id);
+			const nextId = newId + 1;
+			const prevId = newId - 1;
+			setCycleIds({ next: nextId.toString(), prev: prevId.toString() });
 		}
 	};
 
@@ -108,6 +111,7 @@ function Recipe() {
 				instructions: recipeData.analyzedInstructions[0].steps,
 			};
 			// console.log(recipeObj);
+			cycleRecipeIds(recipeData.id);
 			setRecipe(recipeObj);
 			//   setIsLoading(false);
 			// mongoExists().catch(console.error);
@@ -116,41 +120,33 @@ function Recipe() {
 		logRecipe().catch(console.error);
 	}, [recipeId]);
 
-	// useEffect(() => {
-	// 	const logRecipe = async () => {
-	// 		//   setIsLoading(true);
-	// 		const response = await fetch('http://localhost:3000/recipe/' + recipeId);
+	useEffect(() => {
+		const logBulkRecipe = async () => {
+			const response = await fetch(
+				'http://localhost:3000/recipe-bulk/?next=' + cycleIds.next + '&prev=' + cycleIds.prev,
+			);
+			console.log(cycleIds);
+			const recipeBulkData = await response.json();
+			console.log(recipeBulkData);
+			// const recipeBulk: [] = recipeBulkData;
+			const recipeObj: { next: string | boolean; prev: string | boolean } = {
+				next: false,
+				prev: false,
+			};
+			const cycledRecipes = recipeBulkData.map((recipe: { id: string }) => {
+				if (recipe.id === cycleIds.next) {
+					recipeObj.next = recipe.id;
+				} else if (recipe.id === cycleIds.prev) {
+					recipeObj.prev = recipe.id;
+				}
+			});
+			setCycleIds(cycledRecipes);
+			// console.log(recipeBulk);
+			//   setIsLoading(false);
+		};
 
-	// 		const recipeData = await response.json();
-	// 		console.log(recipeData);
-	// 		const recipeObj: Recipe = {
-	// 			spoonacularId: recipeData.id,
-	// 			timestamp: new Date().toJSON().toString(),
-	// 			name: recipeData.title,
-	// 			slug: recipeData.title
-	// 				.toLowerCase()
-	// 				.replace(/[,'.?!\\/&]/, '')
-	// 				.replace(/\s/, '-'),
-	// 			ingredients: recipeData.extendedIngredients,
-	// 			image: recipeData.image,
-	// 			summary: recipeData.summary,
-	// 			servings: recipeData.servings,
-	// 			cookTime: recipeData.readyInMinutes,
-	// 			diet: {
-	// 				vegetarian: recipeData.vegetarian,
-	// 				vegan: recipeData.vegan,
-	// 				glutenFree: recipeData.glutenFree,
-	// 				dairyFree: recipeData.dairyFree,
-	// 			},
-	// 			instructions: recipeData.analyzedInstructions[0].steps,
-	// 		};
-	// 		console.log(recipeObj);
-	// 		setRecipe(recipeObj);
-	// 		//   setIsLoading(false);
-	// 	};
-
-	// 	logRecipe().catch(console.error);
-	// }, [recipeId]);
+		logBulkRecipe().catch(console.error);
+	}, [cycleIds]);
 
 	return (
 		<>
@@ -160,7 +156,7 @@ function Recipe() {
 				<title>{recipe !== null ? recipe.name + ' Recipe' : 'Loading...'} </title>
 			</Helmet>
 			<Navigation />
-			<main>
+			<Grid container color={'#fff'} sx={{ backgroundColor: '#434576', p: 2, borderRadius: 2 }}>
 				{recipe !== null ? (
 					<Grid container spacing={2} columns={{ xs: 1, lg: 12 }}>
 						<Grid size={12}>
@@ -200,15 +196,19 @@ function Recipe() {
 						</Grid>
 						<Grid size={12}>
 							<Stack spacing={2} direction="row">
-								<Button
-									variant="contained"
-									// onClick={() => cycleRecipe('previous', recipeId)}
-									href={cycleRecipe('previous', recipeId)}
-									fullWidth={true}
-									startIcon={<ArrowBackIcon />}
-								>
-									Previous Recipe
-								</Button>
+								{cycleIds.prev ? (
+									''
+								) : (
+									<Button
+										variant="contained"
+										// onClick={() => cycleRecipe('previous', recipeId)}
+										href={'/recipe/' + cycleIds.prev}
+										fullWidth={true}
+										startIcon={<ArrowBackIcon />}
+									>
+										Previous Recipe
+									</Button>
+								)}
 
 								{!inMongo ? (
 									<Button
@@ -232,15 +232,19 @@ function Recipe() {
 									</Button>
 								)}
 
-								<Button
-									variant="contained"
-									// onClick={() => cycleRecipe('next', recipeId)}
-									href={cycleRecipe('next', recipeId)}
-									fullWidth={true}
-									endIcon={<ArrowForwardIcon />}
-								>
-									Next Recipe
-								</Button>
+								{cycleIds.next ? (
+									''
+								) : (
+									<Button
+										variant="contained"
+										// onClick={() => cycleRecipe('next', recipeId)}
+										href={'/recipe/' + cycleIds.next}
+										fullWidth={true}
+										endIcon={<ArrowForwardIcon />}
+									>
+										Next Recipe
+									</Button>
+								)}
 							</Stack>
 						</Grid>
 						{/* <Grid size={4}>
@@ -256,7 +260,7 @@ function Recipe() {
 				) : (
 					<h1>Loading...</h1>
 				)}
-			</main>
+			</Grid>
 		</>
 	);
 }

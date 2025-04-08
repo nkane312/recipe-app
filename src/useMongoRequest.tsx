@@ -11,8 +11,8 @@ export const useMongoRequest = () => {
 			headers: { 'Content-Type': 'application/json' },
 		});
 		const mongoReq = await request;
-		console.log(mongoReq);
-		console.log(mongoReq.text());
+		// console.log(mongoReq);
+		// console.log(mongoReq.text());
 		return mongoReq;
 	};
 	return { sendMongoRequest };

@@ -1,5 +1,3 @@
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg';
 import './App.css';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './Navigation';
@@ -7,7 +5,7 @@ import Dashboard from './Dashboard';
 import Search from '../components/Search';
 import RecipeCard from '../components/RecipeCard';
 import { SearchFunction } from './@types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid2';
 import { Typography } from '@mui/material';
 
@@ -17,8 +15,8 @@ import { Typography } from '@mui/material';
 // const recipesListRequest = await fetch('http://localhost:3000/search/pasta');
 // const recipesList = await recipesListRequest.json();
 
-const mongoListRequest = await fetch('http://localhost:3000/recipes/');
-const mongoList = await mongoListRequest.json();
+// const mongoListRequest = await fetch('http://localhost:3000/recipes/');
+// const mongoList = await mongoListRequest.json();
 
 // const mongoAddRequest = await fetch('http://localhost:3000/add/', {
 // 	method: 'POST',
@@ -66,6 +64,18 @@ function App() {
 		// console.log(recipesList.results);
 		setIsLoading(false);
 	};
+
+	const [mongoList, setMongoList] = useState([]);
+	useEffect(() => {
+		const getMongo = async () => {
+			const mongoListRequest = await fetch('http://localhost:3000/recipes/');
+			const mongoListResponse = await mongoListRequest.json();
+			// console.log(mongoListResponse);
+			setMongoList(mongoListResponse);
+		};
+		getMongo();
+	}, []);
+
 	return (
 		<Grid
 			sx={{
@@ -102,7 +112,12 @@ function App() {
 				<Search handleSubmit={runSearch} />
 
 				{/* <Container sx={{ display: 'flex' }}> */}
-				<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+				<Grid
+					container
+					spacing={{ xs: 2, md: 3 }}
+					columns={{ xs: 4, sm: 8, md: 12 }}
+					data-testid="queryResults"
+				>
 					{isLoading ? (
 						<Typography
 							gutterBottom

@@ -96,6 +96,7 @@ app.get('/recipe', (req, res) => {
 
 //API Endpoint
 
+//Searching by ingredient
 app.get('/search/:ingredient', (req, res) => {
 	fetch(
 		'https://api.spoonacular.com/recipes/complexSearch?apiKey=' +
@@ -117,11 +118,36 @@ app.get('/search/:ingredient', (req, res) => {
 		});
 });
 
+//Get single recipe by ID
 app.get('/recipe/:id', (req, res) => {
 	fetch(
 		'https://api.spoonacular.com/recipes/' +
 			req.params.id +
 			'/information?apiKey=' +
+			process.env.SPOONACULAR_KEY,
+	)
+		.then((response) => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok ' + response.statusText);
+			}
+			return response.json();
+		})
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((error) => {
+			console.error('There was a problem with the fetch operation:', error);
+		});
+});
+
+//Get Multiple Recipes by IDs
+app.get('/recipe-bulk/', (req, res) => {
+	fetch(
+		'https://api.spoonacular.com/recipes/informationBulk?ids=' +
+			req.query.next +
+			',' +
+			req.query.prev +
+			'&apiKey=' +
 			process.env.SPOONACULAR_KEY,
 	)
 		.then((response) => {

@@ -46,6 +46,7 @@ export default function CustomizedDataGrid(data: { data: RecipeList }) {
 	return (
 		<div style={{ height: 300, width: '100%' }}>
 			<DataGrid
+				data-testid="recipe-dashboard"
 				rows={rows}
 				columns={columns}
 				slots={{

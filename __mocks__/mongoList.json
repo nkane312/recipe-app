@@ -1,0 +1,569 @@
+[
+	{
+		"_id": "67e41fbbe8bcc2c5482577dc",
+		"name": "Pancakes",
+		"slug": "pancakes",
+		"ingredients": [
+			{
+				"type": "butter",
+				"amount": "3",
+				"measurement": "tbsp"
+			},
+			{
+				"type": "milk",
+				"amount": "1.25",
+				"measurement": "cup"
+			},
+			{
+				"type": "eggs",
+				"amount": "1",
+				"measurement": "egg"
+			},
+			{
+				"type": "flour",
+				"amount": "1.5",
+				"measurement": "cups"
+			},
+			{
+				"type": "baking powder",
+				"amount": "3.5",
+				"measurement": "tsp"
+			},
+			{
+				"type": "salt",
+				"amount": ".25",
+				"measurement": "tsp"
+			},
+			{
+				"type": "sugar",
+				"amount": "1",
+				"measurement": "tbsp"
+			}
+		],
+		"timestamp": "2025-03-20T14:28:50.991Z",
+		"image": "",
+		"summary": "Perfect pancakes are easier to make than you think. This pancake recipe produces thick, fluffy, and all-around delicious pancakes with just a few ingredients that are probably already in your kitchen.",
+		"servings": 8,
+		"cookTime": 20,
+		"diet": {
+			"vegetarian": true,
+			"vegan": false,
+			"glutenFree": false,
+			"dairyFree": false
+		},
+		"instructions": [
+			{
+				"number": 1,
+				"step": "Sift the dry ingredients together."
+			},
+			{
+				"number": 2,
+				"step": "Make a well, then add the wet ingredients. Stir to combine."
+			},
+			{
+				"number": 3,
+				"step": "Scoop the batter onto a hot griddle or pan."
+			},
+			{
+				"number": 4,
+				"step": "Cook for two to three minutes, then flip."
+			},
+			{
+				"number": 5,
+				"step": "Continue cooking until brown on both sides."
+			}
+		]
+	},
+	{
+		"_id": "67e41fbbe8bcc2c5482577dd",
+		"name": "Salsa Verde",
+		"slug": "salsa-verde",
+		"ingredients": [
+			{
+				"type": "tomatillo",
+				"amount": "1.25",
+				"measurement": "lbs"
+			},
+			{
+				"type": "onion",
+				"amount": "1",
+				"measurement": "cup"
+			},
+			{
+				"type": "serrano chile",
+				"amount": "4",
+				"measurement": "chiles"
+			},
+			{
+				"type": "cilantro",
+				"amount": "12",
+				"measurement": "sprigs"
+			},
+			{
+				"type": "garlic",
+				"amount": "4",
+				"measurement": "cloves"
+			},
+			{
+				"type": "cooking oil",
+				"amount": "2",
+				"measurement": "tbsp"
+			},
+			{
+				"type": "salt",
+				"amount": "1.5",
+				"measurement": "tsp"
+			}
+		],
+		"timestamp": "2025-03-19T14:28:50.991Z",
+		"image": "",
+		"summary": "Recipe for an authentic \"salsa verde,\" or \"green sauce,\" a staple in every Mexican kitchen. It is so simple to make from easy to find ingredients. You make it mild or spicy depending on how many peppers you add.",
+		"servings": 8,
+		"cookTime": 40,
+		"diet": {
+			"vegetarian": true,
+			"vegan": true,
+			"glutenFree": true,
+			"dairyFree": true
+		},
+		"instructions": [
+			{
+				"number": 1,
+				"step": "Remove the papery husks from the tomatillos and rinse to remove the sticky residue."
+			},
+			{
+				"number": 2,
+				"step": "Quarter the onion."
+			},
+			{
+				"number": 3,
+				"step": "Add all of the ingredients except the cilantro and salt to a large pot and just cover with water."
+			},
+			{
+				"number": 4,
+				"step": "Bring the water and ingredients to a boil and then simmer for 10 minutes."
+			},
+			{
+				"number": 5,
+				"step": "Blend the cooked ingredients and the cilantro with the cooking water until smooth. (About 30 seconds)"
+			},
+			{
+				"number": 6,
+				"step": "Heat 2 tablespoons of cooking oil in the pot."
+			},
+			{
+				"number": 7,
+				"step": "Pour the blended salsa back into the pot with the hot cooking oil."
+			},
+			{
+				"number": 8,
+				"step": "Reduce the heat and simmer for 20 minutes."
+			},
+			{
+				"number": 9,
+				"step": "Add the salt and adjust if necessary."
+			}
+		]
+	},
+	{
+		"_id": "67e41fbbe8bcc2c5482577de",
+		"name": "Meatloaf",
+		"slug": "meatloaf",
+		"ingredients": [
+			{
+				"type": "ground beef",
+				"amount": "1.5",
+				"measurement": "lbs"
+			},
+			{
+				"type": "grated onion",
+				"amount": "1",
+				"measurement": "cup"
+			},
+			{
+				"type": "eggs, beaten",
+				"amount": "2",
+				"measurement": "eggs"
+			},
+			{
+				"type": "minced garlic",
+				"amount": "1",
+				"measurement": "clove"
+			},
+			{
+				"type": "bread crumbs",
+				"amount": "1",
+				"measurement": "cup"
+			},
+			{
+				"type": "brown sugar",
+				"amount": "2",
+				"measurement": "tsp"
+			},
+			{
+				"type": "ketchup",
+				"amount": "1/2",
+				"measurement": "cup"
+			},
+			{
+				"type": "parsley",
+				"amount": "2",
+				"measurement": "tbsp"
+			},
+			{
+				"type": "Worcestershire sauce",
+				"amount": "1",
+				"measurement": "tbsp"
+			},
+			{
+				"type": "Worcestershire sauce",
+				"amount": "1",
+				"measurement": "tsp"
+			},
+			{
+				"type": "salt",
+				"amount": "1.5",
+				"measurement": "tsp"
+			},
+			{
+				"type": "pepper",
+				"amount": ".5",
+				"measurement": "tsp"
+			}
+		],
+		"timestamp": "2025-03-18T14:28:50.991Z",
+		"image": "",
+		"summary": "Old-fashioned but never boring, this homemade meatloaf recipe will have everyone asking for seconds.",
+		"servings": 6,
+		"cookTime": 85,
+		"diet": {
+			"vegetarian": false,
+			"vegan": false,
+			"glutenFree": false,
+			"dairyFree": false
+		},
+		"instructions": [
+			{
+				"number": 1,
+				"step": "Preheat the oven to 350 degrees F. Line a rimmed baking sheet with parchment."
+			},
+			{
+				"number": 2,
+				"step": "Combine the meatloaf mix, breadcrumbs, parsley, eggs, onion, garlic, 1/4 cup of the ketchup, 1 tablespoon of the Worcestershire, 1 1/2 teaspoons salt and 1/2 teaspoon pepper in a large mixing bowl. Using your hands, mix together until well combined."
+			},
+			{
+				"number": 3,
+				"step": "Transfer the mixture to the prepared baking sheet and form it into a compact oval-shaped loaf about 9 inches by 5 inches. Bake the meatloaf for 30 minutes."
+			},
+			{
+				"number": 4,
+				"step": "Stir the brown sugar together with the remaining 1/4 cup ketchup and 1 teaspoon Worcestershire in a small bowl for the glaze. Brush the top and sides of the meatloaf all over with the glaze. Return to the oven and bake until the glaze starts to caramelize and a thermometer inserted in the center of the meatloaf registers 160 degrees Fahrenheit, about 25 minutes more. Let rest for 10 minutes before slicing and serving."
+			}
+		]
+	},
+	{
+		"_id": "67ec3ff37ea61e43059665c6",
+		"spoonacularId": 642583,
+		"timestamp": "2025-04-01T19:35:12.124Z",
+		"name": "Farfalle with Peas, Ham and Cream",
+		"slug": "farfalle-with-peas-ham-and-cream",
+		"ingredients": [
+			{
+				"id": 1001,
+				"aisle": "Milk, Eggs, Other Dairy",
+				"image": "butter-sliced.jpg",
+				"consistency": "SOLID",
+				"name": "butter",
+				"nameClean": "butter",
+				"original": "1 teaspoon butter",
+				"originalName": "butter",
+				"amount": 1,
+				"unit": "teaspoon",
+				"meta": [],
+				"measures": {
+					"us": {
+						"amount": 1,
+						"unitShort": "tsp",
+						"unitLong": "teaspoon"
+					},
+					"metric": {
+						"amount": 1,
+						"unitShort": "tsp",
+						"unitLong": "teaspoon"
+					}
+				}
+			},
+			{
+				"id": 99186,
+				"aisle": "Meat",
+				"image": "diced-ham.jpg",
+				"consistency": "SOLID",
+				"name": "ham",
+				"nameClean": "diced ham",
+				"original": "3-4 slices of ham, diced",
+				"originalName": "ham, diced",
+				"amount": 3,
+				"unit": "slices",
+				"meta": ["diced"],
+				"measures": {
+					"us": {
+						"amount": 3,
+						"unitShort": "slice",
+						"unitLong": "slices"
+					},
+					"metric": {
+						"amount": 3,
+						"unitShort": "slice",
+						"unitLong": "slices"
+					}
+				}
+			},
+			{
+				"id": 10120420,
+				"aisle": "Pasta and Rice",
+				"image": "farfalle.png",
+				"consistency": "SOLID",
+				"name": "farfalle pasta",
+				"nameClean": "farfalle",
+				"original": "Farfalle Pasta, or any shape pasta desired",
+				"originalName": "Farfalle Pasta, or any shape pasta desired",
+				"amount": 4,
+				"unit": "servings",
+				"meta": ["or any shape pasta desired"],
+				"measures": {
+					"us": {
+						"amount": 4,
+						"unitShort": "servings",
+						"unitLong": "servings"
+					},
+					"metric": {
+						"amount": 4,
+						"unitShort": "servings",
+						"unitLong": "servings"
+					}
+				}
+			},
+			{
+				"id": 1053,
+				"aisle": "Milk, Eggs, Other Dairy",
+				"image": "fluid-cream.jpg",
+				"consistency": "LIQUID",
+				"name": "heavy cream",
+				"nameClean": "cream",
+				"original": "½ cup heavy cream ( milk can be a substitute)",
+				"originalName": "heavy cream ( milk can be a substitute)",
+				"amount": 0.5,
+				"unit": "cup",
+				"meta": ["canned", "( milk can be a substitute)"],
+				"measures": {
+					"us": {
+						"amount": 0.5,
+						"unitShort": "cups",
+						"unitLong": "cups"
+					},
+					"metric": {
+						"amount": 119,
+						"unitShort": "ml",
+						"unitLong": "milliliters"
+					}
+				}
+			},
+			{
+				"id": 1033,
+				"aisle": "Cheese",
+				"image": "parmesan.jpg",
+				"consistency": "SOLID",
+				"name": "parmesan cheese",
+				"nameClean": "parmesan",
+				"original": "½ cup parmesan cheese",
+				"originalName": "parmesan cheese",
+				"amount": 0.5,
+				"unit": "cup",
+				"meta": [],
+				"measures": {
+					"us": {
+						"amount": 0.5,
+						"unitShort": "cups",
+						"unitLong": "cups"
+					},
+					"metric": {
+						"amount": 50,
+						"unitShort": "g",
+						"unitLong": "grams"
+					}
+				}
+			},
+			{
+				"id": 11304,
+				"aisle": "Produce",
+				"image": "peas.jpg",
+				"consistency": "SOLID",
+				"name": "peas",
+				"nameClean": "petite peas",
+				"original": "1 cup frozen peas",
+				"originalName": "frozen peas",
+				"amount": 1,
+				"unit": "cup",
+				"meta": ["frozen"],
+				"measures": {
+					"us": {
+						"amount": 1,
+						"unitShort": "cup",
+						"unitLong": "cup"
+					},
+					"metric": {
+						"amount": 145,
+						"unitShort": "g",
+						"unitLong": "grams"
+					}
+				}
+			},
+			{
+				"id": 1102047,
+				"aisle": "Spices and Seasonings",
+				"image": "salt-and-pepper.jpg",
+				"consistency": "SOLID",
+				"name": "salt and pepper",
+				"nameClean": "salt and pepper",
+				"original": "Salt and pepper",
+				"originalName": "Salt and pepper",
+				"amount": 4,
+				"unit": "servings",
+				"meta": [],
+				"measures": {
+					"us": {
+						"amount": 4,
+						"unitShort": "servings",
+						"unitLong": "servings"
+					},
+					"metric": {
+						"amount": 4,
+						"unitShort": "servings",
+						"unitLong": "servings"
+					}
+				}
+			}
+		],
+		"image": "https://img.spoonacular.com/recipes/642583-556x370.jpg",
+		"summary": "The recipe Farfalle with Peas, Ham and Cream can be made <b>in about 30 minutes</b>. This recipe serves 4. One portion of this dish contains around <b>15g of protein</b>, <b>16g of fat</b>, and a total of <b>397 calories</b>. For <b>77 cents per serving</b>, this recipe <b>covers 13%</b> of your daily requirements of vitamins and minerals. 3 people found this recipe to be scrumptious and satisfying. A mixture of salt and pepper, ham, farfalle pasta, and a handful of other ingredients are all it takes to make this recipe so scrumptious. It works well as a very reasonably priced main course. It is brought to you by Foodista. Taking all factors into account, this recipe <b>earns a spoonacular score of 42%</b>, which is pretty good. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/farfalle-with-gorgonzola-ham-and-peas-149446\">Farfalle With Gorgonzola, Ham And Peas</a>, <a href=\"https://spoonacular.com/recipes/ham-and-peas-farfalle-in-creamy-lemon-parmesan-sauce-646183\">Ham and Peas Farfalle In Creamy Lemon Parmesan Sauce</a>, and <a href=\"https://spoonacular.com/recipes/pasta-with-ham-peas-and-cream-18210\">Pasta With Ham, Peas And Cream</a>.",
+		"servings": 4,
+		"cookTime": 30,
+		"diet": {
+			"vegetarian": false,
+			"vegan": false,
+			"glutenFree": false,
+			"dairyFree": false
+		},
+		"instructions": [
+			{
+				"number": 1,
+				"step": "Cook pasta according to package directions.In a skillet add the peas, butter, ham.",
+				"ingredients": [
+					{
+						"id": 1001,
+						"name": "butter",
+						"localizedName": "butter",
+						"image": "butter-sliced.jpg"
+					},
+					{
+						"id": 20420,
+						"name": "pasta",
+						"localizedName": "pasta",
+						"image": "https://spoonacular.com/cdn/ingredients_100x100/fusilli.jpg"
+					},
+					{
+						"id": 11304,
+						"name": "peas",
+						"localizedName": "peas",
+						"image": "peas.jpg"
+					},
+					{
+						"id": 10151,
+						"name": "ham",
+						"localizedName": "ham",
+						"image": "ham-whole.jpg"
+					}
+				],
+				"equipment": [
+					{
+						"id": 404645,
+						"name": "frying pan",
+						"localizedName": "frying pan",
+						"image": "https://spoonacular.com/cdn/equipment_100x100/pan.png"
+					}
+				]
+			},
+			{
+				"number": 2,
+				"step": "Sautee for 5 minutes.",
+				"ingredients": [],
+				"equipment": [],
+				"length": {
+					"number": 5,
+					"unit": "minutes"
+				}
+			},
+			{
+				"number": 3,
+				"step": "Add the cream, salt and pepper and cook under medium heat for 5 to 10 minutes, or until the cream is slightly becoming thick.",
+				"ingredients": [
+					{
+						"id": 1102047,
+						"name": "salt and pepper",
+						"localizedName": "salt and pepper",
+						"image": "salt-and-pepper.jpg"
+					},
+					{
+						"id": 1053,
+						"name": "cream",
+						"localizedName": "cream",
+						"image": "fluid-cream.jpg"
+					}
+				],
+				"equipment": [],
+				"length": {
+					"number": 5,
+					"unit": "minutes"
+				}
+			},
+			{
+				"number": 4,
+				"step": "Remove from heat. When the pasta is cooked and drained, return to pan and add the sauce. Stir well and add the cheese.",
+				"ingredients": [
+					{
+						"id": 1041009,
+						"name": "cheese",
+						"localizedName": "cheese",
+						"image": "https://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png"
+					},
+					{
+						"id": 20420,
+						"name": "pasta",
+						"localizedName": "pasta",
+						"image": "https://spoonacular.com/cdn/ingredients_100x100/fusilli.jpg"
+					},
+					{
+						"id": 0,
+						"name": "sauce",
+						"localizedName": "sauce",
+						"image": ""
+					}
+				],
+				"equipment": [
+					{
+						"id": 404645,
+						"name": "frying pan",
+						"localizedName": "frying pan",
+						"image": "https://spoonacular.com/cdn/equipment_100x100/pan.png"
+					}
+				]
+			},
+			{
+				"number": 5,
+				"step": "Serve nice and hot.",
+				"ingredients": [],
+				"equipment": []
+			}
+		]
+	}
+]
