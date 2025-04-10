@@ -81,7 +81,6 @@ function App() {
 			sx={{
 				justifyContent: 'center',
 				alignItems: 'center',
-				backgroundColor: '#000000',
 			}}
 			container
 		>
@@ -103,12 +102,6 @@ function App() {
 					alignItems: 'center',
 				}}
 			>
-				{/* <Grid> */}
-				{/* <p>{JSON.stringify(recipe)}</p> */}
-				{/* <p>{JSON.stringify(recipesList)}</p> */}
-				{/* <p>MongoDB data: {JSON.stringify(mongoList)}</p> */}
-				{/* <p>{mongoAdd}</p> */}
-				{/* <p>{mongoRemove}</p> */}
 				<Search handleSubmit={runSearch} />
 
 				{/* <Container sx={{ display: 'flex' }}> */}

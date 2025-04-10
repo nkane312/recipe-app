@@ -1,0 +1,437 @@
+{
+	"id": 642584,
+	"image": "https://img.spoonacular.com/recipes/642584-556x370.jpg",
+	"imageType": "jpg",
+	"title": "Farfalle with Ground Turkey and Spinach in Alfredo",
+	"readyInMinutes": 45,
+	"servings": 4,
+	"sourceUrl": "http://www.foodista.com/recipe/XVPG8MVG/farfalle-with-ground-turkey-and-spinach-in-alfredo",
+	"vegetarian": false,
+	"vegan": false,
+	"glutenFree": false,
+	"dairyFree": false,
+	"veryHealthy": false,
+	"cheap": false,
+	"veryPopular": false,
+	"sustainable": false,
+	"lowFodmap": false,
+	"weightWatcherSmartPoints": 21,
+	"gaps": "no",
+	"preparationMinutes": null,
+	"cookingMinutes": null,
+	"aggregateLikes": 11,
+	"healthScore": 18.0,
+	"creditsText": "Foodista.com – The Cooking Encyclopedia Everyone Can Edit",
+	"license": "CC BY 3.0",
+	"sourceName": "Foodista",
+	"pricePerServing": 281.68,
+	"extendedIngredients": [
+		{
+			"id": 1002030,
+			"aisle": "Spices and Seasonings",
+			"image": "pepper.jpg",
+			"consistency": "SOLID",
+			"name": "pepper",
+			"nameClean": "black pepper",
+			"original": "freshly ground black pepper",
+			"originalName": "freshly ground black pepper",
+			"amount": 4.0,
+			"unit": "servings",
+			"meta": ["black", "freshly ground"],
+			"measures": {
+				"us": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" },
+				"metric": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" }
+			}
+		},
+		{
+			"id": 14106,
+			"aisle": "Alcoholic Beverages",
+			"image": "white-wine.jpg",
+			"consistency": "LIQUID",
+			"name": "wine",
+			"nameClean": "dry white wine",
+			"original": "1/2 cup dry white wine",
+			"originalName": "dry white wine",
+			"amount": 0.5,
+			"unit": "cup",
+			"meta": ["dry white"],
+			"measures": {
+				"us": { "amount": 0.5, "unitShort": "cups", "unitLong": "cups" },
+				"metric": { "amount": 120.0, "unitShort": "ml", "unitLong": "milliliters" }
+			}
+		},
+		{
+			"id": 10120420,
+			"aisle": "Pasta and Rice",
+			"image": "farfalle.png",
+			"consistency": "SOLID",
+			"name": "farfalle",
+			"nameClean": "farfalle",
+			"original": "8 oz. dried farfalle",
+			"originalName": "dried farfalle",
+			"amount": 8.0,
+			"unit": "oz",
+			"meta": ["dried"],
+			"measures": {
+				"us": { "amount": 8.0, "unitShort": "oz", "unitLong": "ounces" },
+				"metric": { "amount": 226.796, "unitShort": "g", "unitLong": "grams" }
+			}
+		},
+		{
+			"id": 1012049,
+			"aisle": "Produce",
+			"image": "thyme.jpg",
+			"consistency": "SOLID",
+			"name": "thyme",
+			"nameClean": "fresh thyme",
+			"original": "1 tsp chopped fresh thyme",
+			"originalName": "chopped fresh thyme",
+			"amount": 1.0,
+			"unit": "tsp",
+			"meta": ["fresh", "chopped"],
+			"measures": {
+				"us": { "amount": 1.0, "unitShort": "tsp", "unitLong": "teaspoon" },
+				"metric": { "amount": 1.0, "unitShort": "tsp", "unitLong": "teaspoon" }
+			}
+		},
+		{
+			"id": 10211215,
+			"aisle": "Produce",
+			"image": "garlic.jpg",
+			"consistency": "SOLID",
+			"name": "garlic cloves",
+			"nameClean": "whole garlic cloves",
+			"original": "2 garlic cloves, finely chopped",
+			"originalName": "garlic cloves, finely chopped",
+			"amount": 2.0,
+			"unit": "",
+			"meta": ["finely chopped"],
+			"measures": {
+				"us": { "amount": 2.0, "unitShort": "", "unitLong": "" },
+				"metric": { "amount": 2.0, "unitShort": "", "unitLong": "" }
+			}
+		},
+		{
+			"id": 5662,
+			"aisle": "Meat",
+			"image": "meat-ground.jpg",
+			"consistency": "SOLID",
+			"name": "ground turkey",
+			"nameClean": "ground turkey",
+			"original": "3/4 lb ground turkey",
+			"originalName": "ground turkey",
+			"amount": 0.75,
+			"unit": "lb",
+			"meta": [],
+			"measures": {
+				"us": { "amount": 0.75, "unitShort": "lb", "unitLong": "pounds" },
+				"metric": { "amount": 340.194, "unitShort": "g", "unitLong": "grams" }
+			}
+		},
+		{
+			"id": 1049,
+			"aisle": "Milk, Eggs, Other Dairy",
+			"image": "fluid-cream.jpg",
+			"consistency": "SOLID",
+			"name": "half-and-half",
+			"nameClean": "half and half",
+			"original": "1 1/2 cups half-and-half",
+			"originalName": "half-and-half",
+			"amount": 1.5,
+			"unit": "cups",
+			"meta": [],
+			"measures": {
+				"us": { "amount": 1.5, "unitShort": "cups", "unitLong": "cups" },
+				"metric": { "amount": 363.0, "unitShort": "ml", "unitLong": "milliliters" }
+			}
+		},
+		{
+			"id": 4053,
+			"aisle": "Oil, Vinegar, Salad Dressing",
+			"image": "olive-oil.jpg",
+			"consistency": "LIQUID",
+			"name": "olive oil",
+			"nameClean": "olive oil",
+			"original": "2 tbsp olive oil",
+			"originalName": "olive oil",
+			"amount": 2.0,
+			"unit": "tbsp",
+			"meta": [],
+			"measures": {
+				"us": { "amount": 2.0, "unitShort": "Tbsps", "unitLong": "Tbsps" },
+				"metric": { "amount": 2.0, "unitShort": "Tbsps", "unitLong": "Tbsps" }
+			}
+		},
+		{
+			"id": 1033,
+			"aisle": "Cheese",
+			"image": "parmesan.jpg",
+			"consistency": "SOLID",
+			"name": "parmigiano-reggiano",
+			"nameClean": "parmesan",
+			"original": "1/3 cup grated Parmigiano-Reggiano",
+			"originalName": "grated Parmigiano-Reggiano",
+			"amount": 0.33333334,
+			"unit": "cup",
+			"meta": ["grated"],
+			"measures": {
+				"us": { "amount": 0.33333334, "unitShort": "cups", "unitLong": "cups" },
+				"metric": { "amount": 33.333, "unitShort": "g", "unitLong": "grams" }
+			}
+		},
+		{
+			"id": 10011282,
+			"aisle": "Produce",
+			"image": "red-onion.png",
+			"consistency": "SOLID",
+			"name": "onion",
+			"nameClean": "red onion",
+			"original": "2 tbsp finely chopped red onion",
+			"originalName": "finely chopped red onion",
+			"amount": 2.0,
+			"unit": "tbsp",
+			"meta": ["red", "finely chopped"],
+			"measures": {
+				"us": { "amount": 2.0, "unitShort": "Tbsps", "unitLong": "Tbsps" },
+				"metric": { "amount": 2.0, "unitShort": "Tbsps", "unitLong": "Tbsps" }
+			}
+		},
+		{
+			"id": 1012047,
+			"aisle": "Spices and Seasonings",
+			"image": "salt.jpg",
+			"consistency": "SOLID",
+			"name": "sea salt",
+			"nameClean": "coarse sea salt",
+			"original": "sea salt",
+			"originalName": "sea salt",
+			"amount": 4.0,
+			"unit": "servings",
+			"meta": [],
+			"measures": {
+				"us": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" },
+				"metric": { "amount": 4.0, "unitShort": "servings", "unitLong": "servings" }
+			}
+		},
+		{
+			"id": 10011457,
+			"aisle": "Produce",
+			"image": "spinach.jpg",
+			"consistency": "SOLID",
+			"name": "spinach leaves",
+			"nameClean": "spinach",
+			"original": "2 cups coarsely chopped fresh spinach leaves",
+			"originalName": "coarsely chopped fresh spinach leaves",
+			"amount": 2.0,
+			"unit": "cups",
+			"meta": ["fresh", "coarsely chopped"],
+			"measures": {
+				"us": { "amount": 2.0, "unitShort": "cups", "unitLong": "cups" },
+				"metric": { "amount": 60.0, "unitShort": "g", "unitLong": "grams" }
+			}
+		},
+		{
+			"id": 1145,
+			"aisle": "Milk, Eggs, Other Dairy",
+			"image": "butter-sliced.jpg",
+			"consistency": "SOLID",
+			"name": "butter",
+			"nameClean": "unsalted butter",
+			"original": "4 tablespoons unsalted butter, cut into pieces",
+			"originalName": "unsalted butter, cut into pieces",
+			"amount": 4.0,
+			"unit": "tablespoons",
+			"meta": ["unsalted", "cut into pieces"],
+			"measures": {
+				"us": { "amount": 4.0, "unitShort": "Tbsps", "unitLong": "Tbsps" },
+				"metric": { "amount": 4.0, "unitShort": "Tbsps", "unitLong": "Tbsps" }
+			}
+		}
+	],
+	"summary": "The recipe Farfalle with Ground Turkey and Spinach in Alfredo can be made <b>in around 45 minutes</b>. For <b>$2.82 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. One portion of this dish contains roughly <b>34g of protein</b>, <b>34g of fat</b>, and a total of <b>652 calories</b>. This recipe serves 4. 11 person were impressed by this recipe. If you have onion, ground turkey, olive oil, and a few other ingredients on hand, you can make it. It works well as a Mediterranean main course. It is brought to you by Foodista. All things considered, we decided this recipe <b>deserves a spoonacular score of 73%</b>. This score is solid. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/chicken-farfalle-with-low-fat-alfredo-sauce-638088\">Chicken Farfalle with Low-Fat Alfredo Sauce</a>, <a href=\"https://spoonacular.com/recipes/artisan-farfalle-pasta-with-smoked-salmon-and-cream-sauce-632778\">Artisan Farfalle Pasta With Smoked Salmon and Cream Sauce</a>, and <a href=\"https://spoonacular.com/recipes/farfalle-with-broccoli-carrots-and-tomatoes-642582\">Farfalle With Broccoli, Carrots and Tomatoes</a>.",
+	"cuisines": ["Mediterranean", "Italian", "European"],
+	"dishTypes": ["side dish", "lunch", "main course", "main dish", "dinner"],
+	"diets": [],
+	"occasions": [],
+	"instructions": "<ol><li>For the Alfredo</li><li>Heat a medium saucepan over low heat and melt the butter. Stir in the garlic and cook 3 minutes, until slightly softened and very fragrant.</li><li>Increase the heat to medium and slowly stir in the half-and-half. Season with salt and pepper.</li><li>Bring to a slight simmer (not a boil) and cook 1 minute, stirring constantly.</li><li>Reduce the heat to low and stir in the cheese and chopped thyme. (If not ready to use, remove from the heat and cover, then gently rewarm.)</li><li>For the Pasta</li><li>Boil the farfalle in boiling, salted water about 10 minutes. Drain.</li><li>Heat a large, deep skillet over medium heat and add the olive oil. Add the onion and turkey and season with salt and pepper. Cook until the onion has softened and the turkey is just cooked through, about 5 minutes.</li><li>Add the spinach and white wine. Cook until the spinach has wilted and the mixture has reduced slightly, 3-4 minutes.</li><li>Pour the alfredo into the turkey mixture and stir gently to combine. Add the cooked pasta and toss well to coat.</li><li>Divide the farfalle in alfredo among 4 pasta bowls and serve right away.</li></ol>",
+	"analyzedInstructions": [
+		{
+			"name": "",
+			"steps": [
+				{ "number": 1, "step": "For the Alfredo", "ingredients": [], "equipment": [] },
+				{
+					"number": 2,
+					"step": "Heat a medium saucepan over low heat and melt the butter. Stir in the garlic and cook 3 minutes, until slightly softened and very fragrant.Increase the heat to medium and slowly stir in the half-and-half. Season with salt and pepper.Bring to a slight simmer (not a boil) and cook 1 minute, stirring constantly.Reduce the heat to low and stir in the cheese and chopped thyme. (If not ready to use, remove from the heat and cover, then gently rewarm.)For the Pasta",
+					"ingredients": [
+						{
+							"id": 1102047,
+							"name": "salt and pepper",
+							"localizedName": "salt and pepper",
+							"image": "salt-and-pepper.jpg"
+						},
+						{
+							"id": 1049,
+							"name": "half and half",
+							"localizedName": "half and half",
+							"image": "fluid-cream.jpg"
+						},
+						{
+							"id": 1001,
+							"name": "butter",
+							"localizedName": "butter",
+							"image": "butter-sliced.jpg"
+						},
+						{
+							"id": 1041009,
+							"name": "cheese",
+							"localizedName": "cheese",
+							"image": "https://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png"
+						},
+						{ "id": 11215, "name": "garlic", "localizedName": "garlic", "image": "garlic.png" },
+						{
+							"id": 20420,
+							"name": "pasta",
+							"localizedName": "pasta",
+							"image": "https://spoonacular.com/cdn/ingredients_100x100/fusilli.jpg"
+						},
+						{ "id": 2049, "name": "thyme", "localizedName": "thyme", "image": "thyme.jpg" }
+					],
+					"equipment": [
+						{
+							"id": 404669,
+							"name": "sauce pan",
+							"localizedName": "sauce pan",
+							"image": "https://spoonacular.com/cdn/equipment_100x100/sauce-pan.jpg"
+						}
+					],
+					"length": { "number": 4, "unit": "minutes" }
+				},
+				{
+					"number": 3,
+					"step": "Boil the farfalle in boiling, salted water about 10 minutes.",
+					"ingredients": [
+						{
+							"id": 10120420,
+							"name": "farfalle",
+							"localizedName": "farfalle",
+							"image": "farfalle.png"
+						},
+						{ "id": 14412, "name": "water", "localizedName": "water", "image": "water.png" }
+					],
+					"equipment": [],
+					"length": { "number": 10, "unit": "minutes" }
+				},
+				{ "number": 4, "step": "Drain.", "ingredients": [], "equipment": [] },
+				{
+					"number": 5,
+					"step": "Heat a large, deep skillet over medium heat and add the olive oil.",
+					"ingredients": [
+						{
+							"id": 4053,
+							"name": "olive oil",
+							"localizedName": "olive oil",
+							"image": "olive-oil.jpg"
+						}
+					],
+					"equipment": [
+						{
+							"id": 404645,
+							"name": "frying pan",
+							"localizedName": "frying pan",
+							"image": "https://spoonacular.com/cdn/equipment_100x100/pan.png"
+						}
+					]
+				},
+				{
+					"number": 6,
+					"step": "Add the onion and turkey and season with salt and pepper. Cook until the onion has softened and the turkey is just cooked through, about 5 minutes.",
+					"ingredients": [
+						{
+							"id": 1102047,
+							"name": "salt and pepper",
+							"localizedName": "salt and pepper",
+							"image": "salt-and-pepper.jpg"
+						},
+						{
+							"id": 5165,
+							"name": "whole turkey",
+							"localizedName": "whole turkey",
+							"image": "turkey-raw-whole.jpg"
+						},
+						{ "id": 11282, "name": "onion", "localizedName": "onion", "image": "brown-onion.png" }
+					],
+					"equipment": [],
+					"length": { "number": 5, "unit": "minutes" }
+				},
+				{
+					"number": 7,
+					"step": "Add the spinach and white wine. Cook until the spinach has wilted and the mixture has reduced slightly, 3-4 minutes.",
+					"ingredients": [
+						{
+							"id": 14106,
+							"name": "white wine",
+							"localizedName": "white wine",
+							"image": "white-wine.jpg"
+						},
+						{
+							"id": 10011457,
+							"name": "spinach",
+							"localizedName": "spinach",
+							"image": "https://spoonacular.com/cdn/ingredients_100x100/spinach.jpg"
+						}
+					],
+					"equipment": [],
+					"length": { "number": 4, "unit": "minutes" }
+				},
+				{
+					"number": 8,
+					"step": "Pour the alfredo into the turkey mixture and stir gently to combine.",
+					"ingredients": [
+						{
+							"id": 5165,
+							"name": "whole turkey",
+							"localizedName": "whole turkey",
+							"image": "turkey-raw-whole.jpg"
+						}
+					],
+					"equipment": []
+				},
+				{
+					"number": 9,
+					"step": "Add the cooked pasta and toss well to coat.Divide the farfalle in alfredo among 4 pasta bowls and serve right away.",
+					"ingredients": [
+						{
+							"id": 20421,
+							"name": "cooked pasta",
+							"localizedName": "cooked pasta",
+							"image": "fusilli.jpg"
+						},
+						{
+							"id": 10120420,
+							"name": "farfalle",
+							"localizedName": "farfalle",
+							"image": "farfalle.png"
+						},
+						{
+							"id": 20420,
+							"name": "pasta",
+							"localizedName": "pasta",
+							"image": "https://spoonacular.com/cdn/ingredients_100x100/fusilli.jpg"
+						}
+					],
+					"equipment": [
+						{
+							"id": 404783,
+							"name": "bowl",
+							"localizedName": "bowl",
+							"image": "https://spoonacular.com/cdn/equipment_100x100/bowl.jpg"
+						}
+					]
+				}
+			]
+		}
+	],
+	"originalId": null,
+	"spoonacularScore": 72.768310546875,
+	"spoonacularSourceUrl": "https://spoonacular.com/farfalle-with-ground-turkey-and-spinach-in-alfredo-642584"
+}

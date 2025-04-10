@@ -111,7 +111,7 @@ function Recipe() {
 				instructions: recipeData.analyzedInstructions[0].steps,
 			};
 			// console.log(recipeObj);
-			cycleRecipeIds(recipeData.id);
+			// cycleRecipeIds(recipeData.id);
 			setRecipe(recipeObj);
 			//   setIsLoading(false);
 			// mongoExists().catch(console.error);
@@ -122,27 +122,30 @@ function Recipe() {
 
 	useEffect(() => {
 		const logBulkRecipe = async () => {
-			const response = await fetch(
-				'http://localhost:3000/recipe-bulk/?next=' + cycleIds.next + '&prev=' + cycleIds.prev,
-			);
-			console.log(cycleIds);
-			const recipeBulkData = await response.json();
-			console.log(recipeBulkData);
-			// const recipeBulk: [] = recipeBulkData;
-			const recipeObj: { next: string | boolean; prev: string | boolean } = {
-				next: false,
-				prev: false,
-			};
-			const cycledRecipes = recipeBulkData.map((recipe: { id: string }) => {
-				if (recipe.id === cycleIds.next) {
-					recipeObj.next = recipe.id;
-				} else if (recipe.id === cycleIds.prev) {
-					recipeObj.prev = recipe.id;
-				}
-			});
-			setCycleIds(cycledRecipes);
-			// console.log(recipeBulk);
-			//   setIsLoading(false);
+			if (cycleIds.next !== false && cycleIds.prev !== false) {
+				const response = await fetch(
+					'http://localhost:3000/recipe-bulk/?next=' + cycleIds.next + '&prev=' + cycleIds.prev,
+				);
+				// console.log(cycleIds);
+				const recipeBulkData = await response.json();
+				// console.log(recipeBulkData);
+				// const recipeBulk: [] = recipeBulkData;
+				const recipeObj: { next: string | boolean; prev: string | boolean } = {
+					next: false,
+					prev: false,
+				};
+				// const recipeBulkArr = [...recipeBulkData];
+				const cycledRecipes = recipeBulkData.map((recipe: { id: string }) => {
+					if (recipe.id === cycleIds.next) {
+						recipeObj.next = recipe.id;
+					} else if (recipe.id === cycleIds.prev) {
+						recipeObj.prev = recipe.id;
+					}
+				});
+				setCycleIds(cycledRecipes);
+				// console.log(recipeBulk);
+				//   setIsLoading(false);
+			}
 		};
 
 		logBulkRecipe().catch(console.error);
