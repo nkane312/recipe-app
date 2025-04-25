@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
 import './App.css';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './Navigation';
 import type { Recipe } from './@types';
@@ -8,148 +7,25 @@ import Grid from '@mui/material/Grid2';
 import { Button, Paper, Stack, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { useMongoRequest } from './useMongoRequest';
+// import defaultImage from '../src/assets/default-recipe.svg';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useMongo } from './MongoContext';
+import { useAPI } from './SpoonacularContext';
+// import { useState } from 'react';
 
 function Recipe() {
-	const [recipe, setRecipe] = useState<Recipe | null>(null);
+	const { inMongo, handleAdd, handleRemove } = useMongo();
+	const { recipe, setRecipeId, newRecipes, newRecipeIndex } = useAPI();
+
 	const params = useParams();
-	const recipeId = params.id;
-	const [inMongo, setInMongo] = useState(false);
-	const [cycleIds, setCycleIds] = useState<{ next: string | boolean; prev: string | boolean }>({
-		next: false,
-		prev: false,
-	});
-	// const [cycledRecipes, setCycledRecipes] = useState<
-	// 	[{ next: Recipe | boolean }, { prev: Recipe | boolean }]
-	// >([{ next: false }, { prev: false }]);
-	useEffect(() => {
-		const mongoExists = async () => {
-			if (recipe !== null) {
-				const response = await fetch('http://localhost:3000/recipes/' + recipe.slug);
-				if (response.status === 200) {
-					const recipeText = await response.text();
-					console.log(recipeText);
-					if (recipeText === '') {
-						setInMongo(false);
-					} else {
-						setInMongo(true);
-					}
-				} else {
-					setInMongo(false);
-				}
-			} else {
-				setInMongo(false);
-			}
-		};
-		mongoExists().catch(console.error);
-	}, [inMongo, recipe]);
-	// function MongoRequest(method: 'add' | 'remove', recipeData: Recipe | null) {
-	// 	const [mongoResponse, setMongoResponse] = useState('');
-	// 	useEffect(() => {
-	// 		if (recipeData !== null) {
-	// 			const mongoRequest = async () => {
-	// 				const request = await fetch(`http://localhost:3000/${method}/`, {
-	// 					method: 'POST',
-	// 					body: JSON.stringify(recipeData),
-	// 					headers: { 'Content-Type': 'application/json' },
-	// 				});
-	// 				const mongoReq = await request.text();
-	// 				setMongoResponse(mongoReq);
-	// 			};
-	// 			mongoRequest();
-	// 		}
-	// 	}, [recipeData]);
-	// 	return mongoResponse;
-	// }
-	const { sendMongoRequest } = useMongoRequest();
-	const handleAdd = () => {
-		sendMongoRequest('add', recipe);
-		setInMongo(true);
-	};
-	const handleRemove = () => {
-		sendMongoRequest('remove', recipe);
-		setInMongo(false);
-	};
+	setRecipeId(params.id);
 
-	const cycleRecipeIds = (id: string | undefined) => {
-		if (id !== undefined) {
-			const newId = parseInt(id);
-			const nextId = newId + 1;
-			const prevId = newId - 1;
-			setCycleIds({ next: nextId.toString(), prev: prevId.toString() });
-		}
-	};
+	// const [imageUrl, setImageUrl] = useState(recipe?.image);
 
-	useEffect(() => {
-		const logRecipe = async () => {
-			//   setIsLoading(true);
-			const response = await fetch('http://localhost:3000/recipe/' + recipeId);
-
-			const recipeData = await response.json();
-			// console.log(recipeData);
-			const recipeObj: Recipe = {
-				spoonacularId: recipeData.id,
-				timestamp: new Date().toJSON().toString(),
-				name: recipeData.title,
-				slug: recipeData.title
-					.toLowerCase()
-					.replace(/[,'.?!\\/&]/g, '')
-					.replace(/\s/g, '-'),
-				ingredients: recipeData.extendedIngredients,
-				image: recipeData.image,
-				summary: recipeData.summary,
-				servings: recipeData.servings,
-				cookTime: recipeData.readyInMinutes,
-				diet: {
-					vegetarian: recipeData.vegetarian,
-					vegan: recipeData.vegan,
-					glutenFree: recipeData.glutenFree,
-					dairyFree: recipeData.dairyFree,
-				},
-				instructions: recipeData.analyzedInstructions[0].steps,
-			};
-			// console.log(recipeObj);
-			// cycleRecipeIds(recipeData.id);
-			setRecipe(recipeObj);
-			//   setIsLoading(false);
-			// mongoExists().catch(console.error);
-		};
-
-		logRecipe().catch(console.error);
-	}, [recipeId]);
-
-	useEffect(() => {
-		const logBulkRecipe = async () => {
-			if (cycleIds.next !== false && cycleIds.prev !== false) {
-				const response = await fetch(
-					'http://localhost:3000/recipe-bulk/?next=' + cycleIds.next + '&prev=' + cycleIds.prev,
-				);
-				// console.log(cycleIds);
-				const recipeBulkData = await response.json();
-				// console.log(recipeBulkData);
-				// const recipeBulk: [] = recipeBulkData;
-				const recipeObj: { next: string | boolean; prev: string | boolean } = {
-					next: false,
-					prev: false,
-				};
-				// const recipeBulkArr = [...recipeBulkData];
-				const cycledRecipes = recipeBulkData.map((recipe: { id: string }) => {
-					if (recipe.id === cycleIds.next) {
-						recipeObj.next = recipe.id;
-					} else if (recipe.id === cycleIds.prev) {
-						recipeObj.prev = recipe.id;
-					}
-				});
-				setCycleIds(cycledRecipes);
-				// console.log(recipeBulk);
-				//   setIsLoading(false);
-			}
-		};
-
-		logBulkRecipe().catch(console.error);
-	}, [cycleIds]);
+	// const handleImageError = () => {
+	// 	setImageUrl(defaultImage);
+	// };
 
 	return (
 		<>
@@ -167,6 +43,7 @@ function Recipe() {
 						</Grid>
 						<Grid size={4}>
 							<img src={recipe.image} alt={recipe.name} width={400} />
+							{/* <img onError={handleImageError} src={imageUrl} alt={recipe.name} width={400} /> */}
 						</Grid>
 						<Grid size={8}>
 							<Paper elevation={1} sx={{ p: 1, minHeight: 250, alignContent: 'center' }}>
@@ -199,18 +76,34 @@ function Recipe() {
 						</Grid>
 						<Grid size={12}>
 							<Stack spacing={2} direction="row">
-								{cycleIds.prev ? (
+								{/* {cycleIds.prev ? (
 									''
 								) : (
 									<Button
 										variant="contained"
-										// onClick={() => cycleRecipe('previous', recipeId)}
 										href={'/recipe/' + cycleIds.prev}
 										fullWidth={true}
 										startIcon={<ArrowBackIcon />}
 									>
 										Previous Recipe
 									</Button>
+								)} */}
+
+								{newRecipes !== undefined ? (
+									newRecipeIndex !== undefined && newRecipeIndex > 0 ? (
+										<Button
+											variant="contained"
+											href={'/recipe/' + newRecipes.at(newRecipeIndex - 1)?.id}
+											fullWidth={true}
+											startIcon={<ArrowBackIcon />}
+										>
+											Previous Recipe
+										</Button>
+									) : (
+										''
+									)
+								) : (
+									''
 								)}
 
 								{!inMongo ? (
@@ -235,18 +128,33 @@ function Recipe() {
 									</Button>
 								)}
 
-								{cycleIds.next ? (
+								{/* {cycleIds.next ? (
 									''
 								) : (
 									<Button
 										variant="contained"
-										// onClick={() => cycleRecipe('next', recipeId)}
 										href={'/recipe/' + cycleIds.next}
 										fullWidth={true}
 										endIcon={<ArrowForwardIcon />}
 									>
 										Next Recipe
 									</Button>
+								)} */}
+								{newRecipes !== undefined ? (
+									newRecipeIndex !== undefined && newRecipeIndex < newRecipes.length ? (
+										<Button
+											variant="contained"
+											href={'/recipe/' + newRecipes.at(newRecipeIndex + 1)?.id}
+											fullWidth={true}
+											startIcon={<ArrowForwardIcon />}
+										>
+											Next Recipe
+										</Button>
+									) : (
+										''
+									)
+								) : (
+									''
 								)}
 							</Stack>
 						</Grid>
