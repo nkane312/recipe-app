@@ -2,15 +2,10 @@ import React, { createContext, useContext } from 'react';
 import { useEffect, useState } from 'react';
 import { Recipe, SpoonacularAPIContext, SearchFunction } from './@types';
 
-const SpoonacularContext = createContext<SpoonacularAPIContext | undefined>(undefined);
+export const SpoonacularContext = createContext<SpoonacularAPIContext | undefined>(undefined);
 
 export const SpoonacularProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-	const cachedRecipes = JSON.parse(
-		window.localStorage.getItem('newRecipes') ??
-			JSON.stringify({
-				1: [] as { id: string }[],
-			}),
-	);
+	const cachedRecipes = JSON.parse(window.localStorage.getItem('newRecipes') ?? JSON.stringify([]));
 
 	const [newRecipes, setNewRecipes] = useState(cachedRecipes);
 	const [isLoading, setIsLoading] = useState(false);

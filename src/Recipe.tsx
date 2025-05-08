@@ -1,5 +1,5 @@
 import './App.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './Navigation';
 import type { Recipe } from './@types';
@@ -12,14 +12,22 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useMongo } from './MongoContext';
 import { useAPI } from './SpoonacularContext';
-// import { useState } from 'react';
+import { useEffect } from 'react';
 
 function Recipe() {
 	const { inMongo, handleAdd, handleRemove } = useMongo();
 	const { recipe, setRecipeId, newRecipes, newRecipeIndex } = useAPI();
 
 	const params = useParams();
-	setRecipeId(params.id);
+	useEffect(() => {
+		setRecipeId(params.id);
+	}, [params.id, setRecipeId]);
+
+	const navigate = useNavigate();
+
+	const handleCycle = (id: number | undefined) => {
+		navigate(`/recipe/${id}`);
+	};
 
 	// const [imageUrl, setImageUrl] = useState(recipe?.image);
 
@@ -76,24 +84,11 @@ function Recipe() {
 						</Grid>
 						<Grid size={12}>
 							<Stack spacing={2} direction="row">
-								{/* {cycleIds.prev ? (
-									''
-								) : (
-									<Button
-										variant="contained"
-										href={'/recipe/' + cycleIds.prev}
-										fullWidth={true}
-										startIcon={<ArrowBackIcon />}
-									>
-										Previous Recipe
-									</Button>
-								)} */}
-
 								{newRecipes !== undefined ? (
-									newRecipeIndex !== undefined && newRecipeIndex > 0 ? (
+									newRecipeIndex !== undefined && newRecipeIndex > 0 && newRecipes.length > 0 ? (
 										<Button
 											variant="contained"
-											href={'/recipe/' + newRecipes.at(newRecipeIndex - 1)?.id}
+											onClick={() => handleCycle(newRecipes.at(newRecipeIndex - 1)?.id)}
 											fullWidth={true}
 											startIcon={<ArrowBackIcon />}
 										>
@@ -128,23 +123,13 @@ function Recipe() {
 									</Button>
 								)}
 
-								{/* {cycleIds.next ? (
-									''
-								) : (
-									<Button
-										variant="contained"
-										href={'/recipe/' + cycleIds.next}
-										fullWidth={true}
-										endIcon={<ArrowForwardIcon />}
-									>
-										Next Recipe
-									</Button>
-								)} */}
 								{newRecipes !== undefined ? (
-									newRecipeIndex !== undefined && newRecipeIndex < newRecipes.length ? (
+									newRecipeIndex !== undefined &&
+									newRecipeIndex < newRecipes.length &&
+									newRecipes.length > 0 ? (
 										<Button
 											variant="contained"
-											href={'/recipe/' + newRecipes.at(newRecipeIndex + 1)?.id}
+											onClick={() => handleCycle(newRecipes.at(newRecipeIndex + 1)?.id)}
 											fullWidth={true}
 											startIcon={<ArrowForwardIcon />}
 										>
@@ -158,15 +143,6 @@ function Recipe() {
 								)}
 							</Stack>
 						</Grid>
-						{/* <Grid size={4}>
-							
-						</Grid>
-
-						<Grid size={4}>
-							
-						</Grid> */}
-
-						{/* </Grid> */}
 					</Grid>
 				) : (
 					<h1>Loading...</h1>

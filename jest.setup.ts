@@ -11,7 +11,7 @@ import MongoList from './__mocks__/mongoList.json';
 global.TextEncoder = TextEncoder;
 // global.TextDecoder = TextDecoder;
 const assetsFetchMock = (url: RequestInfo | URL) => {
-	console.log(url.toString());
+	// console.log(url.toString());
 	const mock = url.toString().endsWith('recipes/')
 		? MongoList
 		: url.toString().includes('search/')

@@ -8,21 +8,17 @@ const MongoContext = createContext<MongoDBContext | undefined>(undefined);
 export const MongoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const [mongoList, setMongoList] = useState<RecipeList>([]);
 	const [isMongoLoading, setIsMongoLoading] = useState(true);
-	// const [mongoAdjusted, setMongoAdjusted] = useState(false);
 
-	// const [recipe, setRecipe] = useState<Recipe | null>(null);
 	const { recipe } = useAPI();
 	const [inMongo, setInMongo] = useState(false);
 
 	const { sendMongoRequest } = useMongoRequest();
 	const handleAdd = async () => {
-		// setMongoAdjusted(!mongoAdjusted);
 		await sendMongoRequest('add', recipe);
 		setInMongo(true);
 	};
 	const handleRemove = async () => {
 		await sendMongoRequest('remove', recipe);
-		// setMongoAdjusted(!mongoAdjusted);
 		setInMongo(false);
 	};
 
@@ -31,10 +27,8 @@ export const MongoProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 			setIsMongoLoading(true);
 			const mongoListRequest = await fetch('http://localhost:3000/recipes/');
 			const mongoListResponse = await mongoListRequest.json();
-			console.log(mongoListResponse);
 			setMongoList(mongoListResponse);
 			setIsMongoLoading(false);
-			// setMongoAdjusted(true);
 		};
 		getMongo().catch(console.error);
 	}, [inMongo]);
